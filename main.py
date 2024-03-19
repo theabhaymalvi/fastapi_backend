@@ -10,14 +10,14 @@ if conn:
     print(conn)
 db = conn['taskify']
 
-if "users" not in db.list_collection_names():
-    db.create_collection("users")
+# if "users" not in db.list_collection_names():
+#     db.create_collection("users")
 
-if "tasks" not in db.list_collection_names():
-    db.create_collection("tasks")
+# if "tasks" not in db.list_collection_names():
+#     db.create_collection("tasks")
 
-users_collection = db['users']
-tasks_collection = db['tasks']
+# users_collection = db['users']
+# tasks_collection = db['tasks']
 #-----------------------------
 
 app = FastAPI()
