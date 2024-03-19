@@ -2,13 +2,11 @@ from fastapi import APIRouter, HTTPException
 from models import User
 from db_connection import users_collection
 from jose import jwt
-import json
-from bson import json_util
+import os
 from passlib.context import CryptContext
 
-SECRET_KEY = "cba13e8e0379de60466cfda50921e93a0ef229c4027b72af9b0efb33d4553909"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -19,10 +17,6 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 router = APIRouter()
-
-@router.get("/")
-def users():
-    return {"users": 'Abhay'}
 
 @router.post("/register")
 def register(user: User):

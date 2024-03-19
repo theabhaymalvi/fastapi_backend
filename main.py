@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from routes import users, tasks
-from dotenv import dotenv_values
 from fastapi.middleware.cors import CORSMiddleware
 
-config = dotenv_values(".env")
 app = FastAPI()
 
 app.add_middleware(

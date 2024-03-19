@@ -1,9 +1,12 @@
 from pymongo import MongoClient
-from dotenv import dotenv_values
+import os
+# from dotenv import dotenv_values
 
-config = dotenv_values('.env')
+# config = dotenv_values('.env')
 
-conn = MongoClient(config['DB_URL'])
+conn = MongoClient(os.environ.get("DB_URL"))
+if conn:
+    print(conn)
 db = conn['fastapi']
 
 users_collection = db['users']
