@@ -1,6 +1,18 @@
 from fastapi import FastAPI
 from routes import users, tasks
 from fastapi.middleware.cors import CORSMiddleware
+from pymongo import MongoClient
+import os
+
+# DB CONNECTION
+conn = MongoClient(os.environ.get("DB_URL"))
+if conn:
+    print(conn)
+db = conn['fastapi']
+
+users_collection = db['users']
+tasks_collection = db['tasks']
+#-----------------------------
 
 app = FastAPI()
 
