@@ -8,7 +8,7 @@ import os
 conn = MongoClient(os.environ.get("DB_URL"))
 if conn:
     print(conn)
-db = conn['fastapi']
+db = conn['taskify']
 
 users_collection = db['users']
 tasks_collection = db['tasks']
