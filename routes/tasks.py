@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from models import Task
-from main import tasks_collection
+from db_connection import tasks_collection
 from bson import ObjectId
 
 router = APIRouter()

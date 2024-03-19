@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from models import User
-from main import users_collection
+from db_connection import users_collection
 from jose import jwt
 import os
 from passlib.context import CryptContext
